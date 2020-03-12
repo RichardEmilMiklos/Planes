@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="planes">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse/java-2019-12/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="12"/>
+    <property name="source" value="12"/>
+    <path id="Plug-in Dependencies.libraryclasspath">
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.core.runtime_3.17.0.v20191122-2104.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.osgi_3.15.100.v20191114-1701.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.osgi.compatibility.state_1.1.600.v20190814-1451.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.equinox.common_3.10.600.v20191004-1420.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.core.jobs_3.10.600.v20191122-2104.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.equinox.registry_3.8.600.v20191017-2055.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.equinox.preferences_3.7.600.v20191017-2055.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.core.contenttype_3.7.500.v20190916-2125.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.equinox.app_1.4.300.v20190815-1535.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.emf.ecore_2.20.0.v20190920-0401.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.emf.common_2.17.0.v20190920-0401.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/dk.dtu.imm.se.ecno.model_0.3.2.201405121936.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.emf.codegen.ecore_2.20.0.v20191012-0918.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.eclipse.emf.codegen_2.19.0.v20190821-1536.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/dk.dtu.imm.se.ecno.core_0.3.2.201405121936.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/dk.dtu.imm.se.ecno.model.generator_0.3.2.201405121936.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/dk.dtu.imm.se.ecno.eclipse_0.3.2.201405121936.jar"/>
+    </path>
+    <path id="planes.classpath">
+        <pathelement location="bin"/>
+        <path refid="Plug-in Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Grid.classpath">
+        <path refid="planes.classpath"/>
+        <path refid="Plug-in Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="planes.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Grid">
+        <java classname="dk.dtu.compute.se.richard.planes.instances.Grid" failonerror="true" fork="yes">
+            <classpath refid="run.Grid.classpath"/>
+        </java>
+    </target>
+</project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecno:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecno="http://ecno.se.imm.dtu.dk/ecno" uri="planesecno">
+  <elementTypes packageURI="" gui="true">
+    <eClass href="planes.ecore#//Plane"/>
+    <coordinationSets synchronisations="//@elementTypes.0/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <references target="//@elementTypes.2">
+      <eReference href="planes.ecore#//Plane/field"/>
+      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.0/@coordinationSets.0"/>
+    </references>
+  </elementTypes>
+  <elementTypes gui="true">
+    <eClass href="planes.ecore#//Bird"/>
+    <coordinationSets synchronisations="//@elementTypes.1/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <references target="//@elementTypes.2">
+      <eReference href="planes.ecore#//Bird/field"/>
+      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.1/@coordinationSets.0"/>
+    </references>
+  </elementTypes>
+  <elementTypes gui="true">
+    <eClass href="planes.ecore#//Field"/>
+    <coordinationSets synchronisations="//@elementTypes.2/@references.0/@synchronisations.0 //@elementTypes.2/@references.1/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <references target="//@elementTypes.0">
+      <eReference href="planes.ecore#//Field/plane"/>
+      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.2/@coordinationSets.0"/>
+    </references>
+    <references target="//@elementTypes.1">
+      <eReference href="planes.ecore#//Field/bird"/>
+      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.2/@coordinationSets.0"/>
+    </references>
+  </elementTypes>
+  <ePackage href="planes.ecore#/"/>
+  <eventTypes name="crash" gui="true"/>
+</ecno:Package>
