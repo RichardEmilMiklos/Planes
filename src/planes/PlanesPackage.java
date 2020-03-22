@@ -67,13 +67,22 @@ public interface PlanesPackage extends EPackage {
 	int GRID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRID__FIELD = 0;
+
+	/**
 	 * The feature id for the '<em><b>Plane</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRID__PLANE = 0;
+	int GRID__PLANE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Bird</b></em>' containment reference list.
@@ -82,16 +91,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRID__BIRD = 1;
-
-	/**
-	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRID__FIELD = 2;
+	int GRID__BIRD = 2;
 
 	/**
 	 * The number of structural features of the '<em>Grid</em>' class.
@@ -112,14 +112,14 @@ public interface PlanesPackage extends EPackage {
 	int GRID_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link planes.impl.PlaneImpl <em>Plane</em>}' class.
+	 * The meta object id for the '{@link planes.impl.FlyingObjectImpl <em>Flying Object</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see planes.impl.PlaneImpl
-	 * @see planes.impl.PlanesPackageImpl#getPlane()
+	 * @see planes.impl.FlyingObjectImpl
+	 * @see planes.impl.PlanesPackageImpl#getFlyingObject()
 	 * @generated
 	 */
-	int PLANE = 1;
+	int FLYING_OBJECT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -128,7 +128,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANE__ID = 0;
+	int FLYING_OBJECT__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
@@ -137,7 +137,53 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANE__FIELD = 1;
+	int FLYING_OBJECT__FIELD = 1;
+
+	/**
+	 * The number of structural features of the '<em>Flying Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLYING_OBJECT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Flying Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLYING_OBJECT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link planes.impl.PlaneImpl <em>Plane</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see planes.impl.PlaneImpl
+	 * @see planes.impl.PlanesPackageImpl#getPlane()
+	 * @generated
+	 */
+	int PLANE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANE__ID = FLYING_OBJECT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Field</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANE__FIELD = FLYING_OBJECT__FIELD;
 
 	/**
 	 * The number of structural features of the '<em>Plane</em>' class.
@@ -146,7 +192,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANE_FEATURE_COUNT = 2;
+	int PLANE_FEATURE_COUNT = FLYING_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Plane</em>' class.
@@ -155,7 +201,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANE_OPERATION_COUNT = 0;
+	int PLANE_OPERATION_COUNT = FLYING_OBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link planes.impl.BirdImpl <em>Bird</em>}' class.
@@ -165,7 +211,7 @@ public interface PlanesPackage extends EPackage {
 	 * @see planes.impl.PlanesPackageImpl#getBird()
 	 * @generated
 	 */
-	int BIRD = 2;
+	int BIRD = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -174,7 +220,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIRD__ID = 0;
+	int BIRD__ID = FLYING_OBJECT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
@@ -183,7 +229,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIRD__FIELD = 1;
+	int BIRD__FIELD = FLYING_OBJECT__FIELD;
 
 	/**
 	 * The number of structural features of the '<em>Bird</em>' class.
@@ -192,7 +238,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIRD_FEATURE_COUNT = 2;
+	int BIRD_FEATURE_COUNT = FLYING_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Bird</em>' class.
@@ -201,7 +247,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BIRD_OPERATION_COUNT = 0;
+	int BIRD_OPERATION_COUNT = FLYING_OBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link planes.impl.FieldImpl <em>Field</em>}' class.
@@ -211,7 +257,7 @@ public interface PlanesPackage extends EPackage {
 	 * @see planes.impl.PlanesPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 3;
+	int FIELD = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -223,13 +269,22 @@ public interface PlanesPackage extends EPackage {
 	int FIELD__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Neighbour</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__NEIGHBOUR = 1;
+
+	/**
 	 * The feature id for the '<em><b>Plane</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__PLANE = 1;
+	int FIELD__PLANE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Bird</b></em>' reference.
@@ -238,7 +293,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__BIRD = 2;
+	int FIELD__BIRD = 3;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -247,7 +302,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = 3;
+	int FIELD_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -270,15 +325,15 @@ public interface PlanesPackage extends EPackage {
 	EClass getGrid();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link planes.Grid#getPlane <em>Plane</em>}'.
+	 * Returns the meta object for the containment reference list '{@link planes.Grid#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Plane</em>'.
-	 * @see planes.Grid#getPlane()
+	 * @return the meta object for the containment reference list '<em>Field</em>'.
+	 * @see planes.Grid#getField()
 	 * @see #getGrid()
 	 * @generated
 	 */
-	EReference getGrid_Plane();
+	EReference getGrid_Field();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link planes.Grid#getBird <em>Bird</em>}'.
@@ -292,15 +347,47 @@ public interface PlanesPackage extends EPackage {
 	EReference getGrid_Bird();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link planes.Grid#getField <em>Field</em>}'.
+	 * Returns the meta object for the containment reference list '{@link planes.Grid#getPlane <em>Plane</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Field</em>'.
-	 * @see planes.Grid#getField()
+	 * @return the meta object for the containment reference list '<em>Plane</em>'.
+	 * @see planes.Grid#getPlane()
 	 * @see #getGrid()
 	 * @generated
 	 */
-	EReference getGrid_Field();
+	EReference getGrid_Plane();
+
+	/**
+	 * Returns the meta object for class '{@link planes.FlyingObject <em>Flying Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flying Object</em>'.
+	 * @see planes.FlyingObject
+	 * @generated
+	 */
+	EClass getFlyingObject();
+
+	/**
+	 * Returns the meta object for the attribute '{@link planes.FlyingObject#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see planes.FlyingObject#getId()
+	 * @see #getFlyingObject()
+	 * @generated
+	 */
+	EAttribute getFlyingObject_Id();
+
+	/**
+	 * Returns the meta object for the reference '{@link planes.FlyingObject#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Field</em>'.
+	 * @see planes.FlyingObject#getField()
+	 * @see #getFlyingObject()
+	 * @generated
+	 */
+	EReference getFlyingObject_Field();
 
 	/**
 	 * Returns the meta object for class '{@link planes.Plane <em>Plane</em>}'.
@@ -313,28 +400,6 @@ public interface PlanesPackage extends EPackage {
 	EClass getPlane();
 
 	/**
-	 * Returns the meta object for the attribute '{@link planes.Plane#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see planes.Plane#getId()
-	 * @see #getPlane()
-	 * @generated
-	 */
-	EAttribute getPlane_Id();
-
-	/**
-	 * Returns the meta object for the reference '{@link planes.Plane#getField <em>Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Field</em>'.
-	 * @see planes.Plane#getField()
-	 * @see #getPlane()
-	 * @generated
-	 */
-	EReference getPlane_Field();
-
-	/**
 	 * Returns the meta object for class '{@link planes.Bird <em>Bird</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,28 +408,6 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBird();
-
-	/**
-	 * Returns the meta object for the attribute '{@link planes.Bird#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see planes.Bird#getId()
-	 * @see #getBird()
-	 * @generated
-	 */
-	EAttribute getBird_Id();
-
-	/**
-	 * Returns the meta object for the reference '{@link planes.Bird#getField <em>Field</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Field</em>'.
-	 * @see planes.Bird#getField()
-	 * @see #getBird()
-	 * @generated
-	 */
-	EReference getBird_Field();
 
 	/**
 	 * Returns the meta object for class '{@link planes.Field <em>Field</em>}'.
@@ -388,6 +431,17 @@ public interface PlanesPackage extends EPackage {
 	EAttribute getField_Name();
 
 	/**
+	 * Returns the meta object for the reference '{@link planes.Field#getBird <em>Bird</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bird</em>'.
+	 * @see planes.Field#getBird()
+	 * @see #getField()
+	 * @generated
+	 */
+	EReference getField_Bird();
+
+	/**
 	 * Returns the meta object for the reference '{@link planes.Field#getPlane <em>Plane</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,15 +453,15 @@ public interface PlanesPackage extends EPackage {
 	EReference getField_Plane();
 
 	/**
-	 * Returns the meta object for the reference '{@link planes.Field#getBird <em>Bird</em>}'.
+	 * Returns the meta object for the reference list '{@link planes.Field#getNeighbour <em>Neighbour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Bird</em>'.
-	 * @see planes.Field#getBird()
+	 * @return the meta object for the reference list '<em>Neighbour</em>'.
+	 * @see planes.Field#getNeighbour()
 	 * @see #getField()
 	 * @generated
 	 */
-	EReference getField_Bird();
+	EReference getField_Neighbour();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -443,12 +497,12 @@ public interface PlanesPackage extends EPackage {
 		EClass GRID = eINSTANCE.getGrid();
 
 		/**
-		 * The meta object literal for the '<em><b>Plane</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Field</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRID__PLANE = eINSTANCE.getGrid_Plane();
+		EReference GRID__FIELD = eINSTANCE.getGrid_Field();
 
 		/**
 		 * The meta object literal for the '<em><b>Bird</b></em>' containment reference list feature.
@@ -459,12 +513,38 @@ public interface PlanesPackage extends EPackage {
 		EReference GRID__BIRD = eINSTANCE.getGrid_Bird();
 
 		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Plane</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRID__FIELD = eINSTANCE.getGrid_Field();
+		EReference GRID__PLANE = eINSTANCE.getGrid_Plane();
+
+		/**
+		 * The meta object literal for the '{@link planes.impl.FlyingObjectImpl <em>Flying Object</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see planes.impl.FlyingObjectImpl
+		 * @see planes.impl.PlanesPackageImpl#getFlyingObject()
+		 * @generated
+		 */
+		EClass FLYING_OBJECT = eINSTANCE.getFlyingObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLYING_OBJECT__ID = eINSTANCE.getFlyingObject_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLYING_OBJECT__FIELD = eINSTANCE.getFlyingObject_Field();
 
 		/**
 		 * The meta object literal for the '{@link planes.impl.PlaneImpl <em>Plane</em>}' class.
@@ -477,22 +557,6 @@ public interface PlanesPackage extends EPackage {
 		EClass PLANE = eINSTANCE.getPlane();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANE__ID = eINSTANCE.getPlane_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLANE__FIELD = eINSTANCE.getPlane_Field();
-
-		/**
 		 * The meta object literal for the '{@link planes.impl.BirdImpl <em>Bird</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -501,22 +565,6 @@ public interface PlanesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BIRD = eINSTANCE.getBird();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BIRD__ID = eINSTANCE.getBird_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BIRD__FIELD = eINSTANCE.getBird_Field();
 
 		/**
 		 * The meta object literal for the '{@link planes.impl.FieldImpl <em>Field</em>}' class.
@@ -537,6 +585,14 @@ public interface PlanesPackage extends EPackage {
 		EAttribute FIELD__NAME = eINSTANCE.getField_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Bird</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD__BIRD = eINSTANCE.getField_Bird();
+
+		/**
 		 * The meta object literal for the '<em><b>Plane</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -545,12 +601,12 @@ public interface PlanesPackage extends EPackage {
 		EReference FIELD__PLANE = eINSTANCE.getField_Plane();
 
 		/**
-		 * The meta object literal for the '<em><b>Bird</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neighbour</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FIELD__BIRD = eINSTANCE.getField_Bird();
+		EReference FIELD__NEIGHBOUR = eINSTANCE.getField_Neighbour();
 
 	}
 

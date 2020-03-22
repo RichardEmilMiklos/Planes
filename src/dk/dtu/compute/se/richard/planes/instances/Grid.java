@@ -18,32 +18,42 @@ public class Grid {
 
 	private void createInstance(ExecutionEngine engine) {
 		// Create the objects
-        planes.Plane o1 = factory1.createPlane();
-        planes.Plane o2 = factory1.createPlane();
-        planes.Bird o3 = factory1.createBird();
-        planes.Bird o4 = factory1.createBird();
-        planes.Field o5 = factory1.createField();
-        planes.Field o6 = factory1.createField();
-        planes.Field o7 = factory1.createField();
-        planes.Field o8 = factory1.createField();	
+        planes.Field o1 = factory1.createField();
+        planes.Field o2 = factory1.createField();
+        planes.Field o3 = factory1.createField();
+        planes.Field o4 = factory1.createField();
+        planes.Plane o5 = factory1.createPlane();
+        planes.Plane o6 = factory1.createPlane();
+        planes.Bird o7 = factory1.createBird();
+        planes.Bird o8 = factory1.createBird();	
 
 		// Set the (simple) attributes
-        o1.setId(1);
-        o2.setId(2);
-        o3.setId(0);
-        o4.setId(2);
-        o5.setName("0");
-        o6.setName("1");
-        o7.setName("2");
-        o8.setName("3");	
+        o1.setName("00");
+        o2.setName("11");
+        o3.setName("22");
+        o4.setName("33");
+        o5.setId(1);
+        o6.setId(22);
+        o7.setId(0);
+        o8.setId(2);	
    
 		// Create the single references
-        o1.setField(o6);
-        o2.setField(o7);
-        o5.setBird(o3);
-        o7.setBird(o4);	
+        o1.setBird(o7);
+        o2.setPlane(o5);
+        o3.setPlane(o6);
+        o3.setBird(o8);
+        o5.setField(o2);
+        o6.setField(o3);
+        o7.setField(o1);
+        o8.setField(o3);	
 
-		// Create the multi references	
+		// Create the multi references
+        o1.getNeighbour().add(o2);
+        o2.getNeighbour().add(o1);
+        o2.getNeighbour().add(o3);
+        o3.getNeighbour().add(o2);
+        o3.getNeighbour().add(o4);
+        o4.getNeighbour().add(o3);	
    		
 		// Register the GUI objects with the controllers (objects 
 		// not visible at a GUI will be added to the engine on the fly)

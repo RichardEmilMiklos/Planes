@@ -30,14 +30,24 @@ import planes.PlanesPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link planes.impl.GridImpl#getField <em>Field</em>}</li>
  *   <li>{@link planes.impl.GridImpl#getPlane <em>Plane</em>}</li>
  *   <li>{@link planes.impl.GridImpl#getBird <em>Bird</em>}</li>
- *   <li>{@link planes.impl.GridImpl#getField <em>Field</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
+	/**
+	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getField()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Field> field;
+
 	/**
 	 * The cached value of the '{@link #getPlane() <em>Plane</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -57,16 +67,6 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * @ordered
 	 */
 	protected EList<Bird> bird;
-
-	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getField()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Field> field;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +92,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Plane> getPlane() {
-		if (plane == null) {
-			plane = new EObjectContainmentEList<Plane>(Plane.class, this, PlanesPackage.GRID__PLANE);
+	public EList<Field> getField() {
+		if (field == null) {
+			field = new EObjectContainmentEList<Field>(Field.class, this, PlanesPackage.GRID__FIELD);
 		}
-		return plane;
+		return field;
 	}
 
 	/**
@@ -116,11 +116,11 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Field> getField() {
-		if (field == null) {
-			field = new EObjectContainmentEList<Field>(Field.class, this, PlanesPackage.GRID__FIELD);
+	public EList<Plane> getPlane() {
+		if (plane == null) {
+			plane = new EObjectContainmentEList<Plane>(Plane.class, this, PlanesPackage.GRID__PLANE);
 		}
-		return field;
+		return plane;
 	}
 
 	/**
@@ -131,12 +131,12 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PlanesPackage.GRID__FIELD:
+				return ((InternalEList<?>)getField()).basicRemove(otherEnd, msgs);
 			case PlanesPackage.GRID__PLANE:
 				return ((InternalEList<?>)getPlane()).basicRemove(otherEnd, msgs);
 			case PlanesPackage.GRID__BIRD:
 				return ((InternalEList<?>)getBird()).basicRemove(otherEnd, msgs);
-			case PlanesPackage.GRID__FIELD:
-				return ((InternalEList<?>)getField()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,12 +149,12 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PlanesPackage.GRID__FIELD:
+				return getField();
 			case PlanesPackage.GRID__PLANE:
 				return getPlane();
 			case PlanesPackage.GRID__BIRD:
 				return getBird();
-			case PlanesPackage.GRID__FIELD:
-				return getField();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +168,10 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PlanesPackage.GRID__FIELD:
+				getField().clear();
+				getField().addAll((Collection<? extends Field>)newValue);
+				return;
 			case PlanesPackage.GRID__PLANE:
 				getPlane().clear();
 				getPlane().addAll((Collection<? extends Plane>)newValue);
@@ -175,10 +179,6 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 			case PlanesPackage.GRID__BIRD:
 				getBird().clear();
 				getBird().addAll((Collection<? extends Bird>)newValue);
-				return;
-			case PlanesPackage.GRID__FIELD:
-				getField().clear();
-				getField().addAll((Collection<? extends Field>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,14 +192,14 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PlanesPackage.GRID__FIELD:
+				getField().clear();
+				return;
 			case PlanesPackage.GRID__PLANE:
 				getPlane().clear();
 				return;
 			case PlanesPackage.GRID__BIRD:
 				getBird().clear();
-				return;
-			case PlanesPackage.GRID__FIELD:
-				getField().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,12 +213,12 @@ public class GridImpl extends MinimalEObjectImpl.Container implements Grid {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PlanesPackage.GRID__FIELD:
+				return field != null && !field.isEmpty();
 			case PlanesPackage.GRID__PLANE:
 				return plane != null && !plane.isEmpty();
 			case PlanesPackage.GRID__BIRD:
 				return bird != null && !bird.isEmpty();
-			case PlanesPackage.GRID__FIELD:
-				return field != null && !field.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

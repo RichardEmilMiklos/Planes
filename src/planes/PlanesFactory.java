@@ -31,6 +31,15 @@ public interface PlanesFactory extends EFactory {
 	Grid createGrid();
 
 	/**
+	 * Returns a new object of class '<em>Flying Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flying Object</em>'.
+	 * @generated
+	 */
+	FlyingObject createFlyingObject();
+
+	/**
 	 * Returns a new object of class '<em>Plane</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

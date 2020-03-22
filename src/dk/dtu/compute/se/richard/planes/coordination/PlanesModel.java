@@ -32,14 +32,14 @@ public class PlanesModel extends EMFPackageAdapter {
 	private EventType eventtype_crash;
 
 
-	private ElementType elementtype_Plane;
-	private ElementType elementtype_Bird;
+	private ElementType elementtype_FlyingObject;
 	private ElementType elementtype_Field;
+	private ElementType elementtype_Bird;
+	private ElementType elementtype_Plane;
 
-	private Reference referencetype_Plane_field;
-	private Reference referencetype_Bird_field;
-	private Reference referencetype_Field_plane;
+	private Reference referencetype_FlyingObject_field;
 	private Reference referencetype_Field_bird;
+	private Reference referencetype_Field_plane;
 
 
 	private PlanesModel(ExecutionEngine engine) {
@@ -62,47 +62,48 @@ public class PlanesModel extends EMFPackageAdapter {
 
 
 
-		elementtype_Plane = ecno_factory.createElementType();
-		elementtype_Plane.setEClass(pack.getPlane());
-		elementtype_Plane.setGui(true);
-		addElementType(elementtype_Plane);
-
-		elementtype_Bird = ecno_factory.createElementType();
-		elementtype_Bird.setEClass(pack.getBird());
-		elementtype_Bird.setGui(true);
-		addElementType(elementtype_Bird);
+		elementtype_FlyingObject = ecno_factory.createElementType();
+		elementtype_FlyingObject.setEClass(pack.getFlyingObject());
+		elementtype_FlyingObject.setGui(true);
+		addElementType(elementtype_FlyingObject);
 
 		elementtype_Field = ecno_factory.createElementType();
 		elementtype_Field.setEClass(pack.getField());
 		elementtype_Field.setGui(true);
 		addElementType(elementtype_Field);
 
+		elementtype_Bird = ecno_factory.createElementType();
+		elementtype_Bird.setEClass(pack.getBird());
+		elementtype_Bird.setGui(true);
+		addElementType(elementtype_Bird);
 
+		elementtype_Plane = ecno_factory.createElementType();
+		elementtype_Plane.setEClass(pack.getPlane());
+		elementtype_Plane.setGui(true);
+		addElementType(elementtype_Plane);
+
+
+		elementtype_Bird.setSuper(elementtype_FlyingObject);
+		elementtype_Plane.setSuper(elementtype_FlyingObject);
 
 		EList<Reference> references;
 
-		references = elementtype_Plane.getReferences();
-		referencetype_Plane_field = ecno_factory.createReference();
-		referencetype_Plane_field.setEReference(pack.getPlane_Field());
-		referencetype_Plane_field.setTarget(elementtype_Field);
-		references.add(referencetype_Plane_field);
-
-		references = elementtype_Bird.getReferences();
-		referencetype_Bird_field = ecno_factory.createReference();
-		referencetype_Bird_field.setEReference(pack.getBird_Field());
-		referencetype_Bird_field.setTarget(elementtype_Field);
-		references.add(referencetype_Bird_field);
+		references = elementtype_FlyingObject.getReferences();
+		referencetype_FlyingObject_field = ecno_factory.createReference();
+		referencetype_FlyingObject_field.setEReference(pack.getFlyingObject_Field());
+		referencetype_FlyingObject_field.setTarget(elementtype_Field);
+		references.add(referencetype_FlyingObject_field);
 
 		references = elementtype_Field.getReferences();
-		referencetype_Field_plane = ecno_factory.createReference();
-		referencetype_Field_plane.setEReference(pack.getField_Plane());
-		referencetype_Field_plane.setTarget(elementtype_Plane);
-		references.add(referencetype_Field_plane);
-
 		referencetype_Field_bird = ecno_factory.createReference();
 		referencetype_Field_bird.setEReference(pack.getField_Bird());
 		referencetype_Field_bird.setTarget(elementtype_Bird);
 		references.add(referencetype_Field_bird);
+
+		referencetype_Field_plane = ecno_factory.createReference();
+		referencetype_Field_plane.setEReference(pack.getField_Plane());
+		referencetype_Field_plane.setTarget(elementtype_Plane);
+		references.add(referencetype_Field_plane);
 
 
 		Synchronisation synch;
@@ -111,30 +112,21 @@ public class PlanesModel extends EMFPackageAdapter {
 		cset = ecno_factory.createCoordinationSet();
 		cset.setTriggerEvent(eventtype_crash);
 		synch = ecno_factory.createSynchronisation();
-		synch.setReference(referencetype_Plane_field);
+		synch.setReference(referencetype_FlyingObject_field);
 		synch.setEventType(eventtype_crash);
 		synch.setType(SynchronisationType.ONE);
 		cset.getSynchronisations().add(synch);
-		elementtype_Plane.getCoordinationSets().add(cset);
+		elementtype_FlyingObject.getCoordinationSets().add(cset);
 
 		cset = ecno_factory.createCoordinationSet();
 		cset.setTriggerEvent(eventtype_crash);
-		synch = ecno_factory.createSynchronisation();
-		synch.setReference(referencetype_Bird_field);
-		synch.setEventType(eventtype_crash);
-		synch.setType(SynchronisationType.ONE);
-		cset.getSynchronisations().add(synch);
-		elementtype_Bird.getCoordinationSets().add(cset);
-
-		cset = ecno_factory.createCoordinationSet();
-		cset.setTriggerEvent(eventtype_crash);
-		synch = ecno_factory.createSynchronisation();
-		synch.setReference(referencetype_Field_plane);
-		synch.setEventType(eventtype_crash);
-		synch.setType(SynchronisationType.ONE);
-		cset.getSynchronisations().add(synch);
 		synch = ecno_factory.createSynchronisation();
 		synch.setReference(referencetype_Field_bird);
+		synch.setEventType(eventtype_crash);
+		synch.setType(SynchronisationType.ONE);
+		cset.getSynchronisations().add(synch);
+		synch = ecno_factory.createSynchronisation();
+		synch.setReference(referencetype_Field_plane);
 		synch.setEventType(eventtype_crash);
 		synch.setType(SynchronisationType.ONE);
 		cset.getSynchronisations().add(synch);

@@ -2,6 +2,8 @@
  */
 package planes;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link planes.Field#getName <em>Name</em>}</li>
+ *   <li>{@link planes.Field#getNeighbour <em>Neighbour</em>}</li>
  *   <li>{@link planes.Field#getPlane <em>Plane</em>}</li>
  *   <li>{@link planes.Field#getBird <em>Bird</em>}</li>
  * </ul>
@@ -46,15 +49,35 @@ public interface Field extends EObject {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Bird</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bird</em>' reference.
+	 * @see #setBird(Bird)
+	 * @see planes.PlanesPackage#getField_Bird()
+	 * @model
+	 * @generated
+	 */
+	Bird getBird();
+
+	/**
+	 * Sets the value of the '{@link planes.Field#getBird <em>Bird</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bird</em>' reference.
+	 * @see #getBird()
+	 * @generated
+	 */
+	void setBird(Bird value);
+
+	/**
 	 * Returns the value of the '<em><b>Plane</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link planes.Plane#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Plane</em>' reference.
 	 * @see #setPlane(Plane)
 	 * @see planes.PlanesPackage#getField_Plane()
-	 * @see planes.Plane#getField
-	 * @model opposite="field"
+	 * @model
 	 * @generated
 	 */
 	Plane getPlane();
@@ -70,27 +93,15 @@ public interface Field extends EObject {
 	void setPlane(Plane value);
 
 	/**
-	 * Returns the value of the '<em><b>Bird</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link planes.Bird#getField <em>Field</em>}'.
+	 * Returns the value of the '<em><b>Neighbour</b></em>' reference list.
+	 * The list contents are of type {@link planes.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bird</em>' reference.
-	 * @see #setBird(Bird)
-	 * @see planes.PlanesPackage#getField_Bird()
-	 * @see planes.Bird#getField
-	 * @model opposite="field"
+	 * @return the value of the '<em>Neighbour</em>' reference list.
+	 * @see planes.PlanesPackage#getField_Neighbour()
+	 * @model
 	 * @generated
 	 */
-	Bird getBird();
-
-	/**
-	 * Sets the value of the '{@link planes.Field#getBird <em>Bird</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bird</em>' reference.
-	 * @see #getBird()
-	 * @generated
-	 */
-	void setBird(Bird value);
+	EList<Field> getNeighbour();
 
 } // Field

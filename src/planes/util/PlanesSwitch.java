@@ -72,15 +72,23 @@ public class PlanesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case PlanesPackage.FLYING_OBJECT: {
+				FlyingObject flyingObject = (FlyingObject)theEObject;
+				T result = caseFlyingObject(flyingObject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case PlanesPackage.PLANE: {
 				Plane plane = (Plane)theEObject;
 				T result = casePlane(plane);
+				if (result == null) result = caseFlyingObject(plane);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case PlanesPackage.BIRD: {
 				Bird bird = (Bird)theEObject;
 				T result = caseBird(bird);
+				if (result == null) result = caseFlyingObject(bird);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +114,21 @@ public class PlanesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGrid(Grid object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flying Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flying Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlyingObject(FlyingObject object) {
 		return null;
 	}
 

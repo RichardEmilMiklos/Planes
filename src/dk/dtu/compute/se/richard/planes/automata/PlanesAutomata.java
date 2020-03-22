@@ -15,9 +15,8 @@ public class PlanesAutomata extends EMFBehaviourAdaptor {
 
 	public PlanesAutomata(ExecutionEngine engine) {
 		super(engine);		
-		this.addElementBehaviour(PlanesPackage.eINSTANCE.getPlane(), Plane.class);		
-		this.addElementBehaviour(PlanesPackage.eINSTANCE.getBird(), Bird.class);		
 		this.addElementBehaviour(PlanesPackage.eINSTANCE.getField(), Field.class);		
+		this.addElementBehaviour(PlanesPackage.eINSTANCE.getFlyingObject(), FlyingObject.class);		
 		
 		this.addPackage(PlanesPackage.eINSTANCE, SimpleEMFBehaviour.class);
 	}

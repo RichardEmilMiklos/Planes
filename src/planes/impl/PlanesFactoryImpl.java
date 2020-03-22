@@ -57,6 +57,7 @@ public class PlanesFactoryImpl extends EFactoryImpl implements PlanesFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PlanesPackage.GRID: return createGrid();
+			case PlanesPackage.FLYING_OBJECT: return createFlyingObject();
 			case PlanesPackage.PLANE: return createPlane();
 			case PlanesPackage.BIRD: return createBird();
 			case PlanesPackage.FIELD: return createField();
@@ -73,6 +74,16 @@ public class PlanesFactoryImpl extends EFactoryImpl implements PlanesFactory {
 	public Grid createGrid() {
 		GridImpl grid = new GridImpl();
 		return grid;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlyingObject createFlyingObject() {
+		FlyingObjectImpl flyingObject = new FlyingObjectImpl();
+		return flyingObject;
 	}
 
 	/**

@@ -72,6 +72,10 @@ public class PlanesAdapterFactory extends AdapterFactoryImpl {
 				return createGridAdapter();
 			}
 			@Override
+			public Adapter caseFlyingObject(FlyingObject object) {
+				return createFlyingObjectAdapter();
+			}
+			@Override
 			public Adapter casePlane(Plane object) {
 				return createPlaneAdapter();
 			}
@@ -114,6 +118,20 @@ public class PlanesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGridAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link planes.FlyingObject <em>Flying Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see planes.FlyingObject
+	 * @generated
+	 */
+	public Adapter createFlyingObjectAdapter() {
 		return null;
 	}
 

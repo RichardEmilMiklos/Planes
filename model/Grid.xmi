@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plns:Grid xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:plns="http://planes/planes" xsi:schemaLocation="http://planes/planes planes.ecore">
-  <plane id="1" field="//@field.1"/>
-  <plane id="2" field="//@field.2"/>
+  <field name="00" bird="//@bird.0" neighbour="//@field.1"/>
+  <field name="11" plane="//@plane.0" neighbour="//@field.0 //@field.2"/>
+  <field name="22" bird="//@bird.1" plane="//@plane.1" neighbour="//@field.1 //@field.3"/>
+  <field name="33" neighbour="//@field.2"/>
   <bird field="//@field.0"/>
   <bird id="2" field="//@field.2"/>
-  <field name="0" bird="//@bird.0"/>
-  <field name="1" plane="//@plane.0"/>
-  <field name="2" plane="//@plane.1" bird="//@bird.1"/>
-  <field name="3"/>
+  <plane id="1" field="//@field.1"/>
+  <plane id="22" field="//@field.2"/>
 </plns:Grid>
