@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="planes" nsURI="http://planes/planes" nsPrefix="plns">
+  <eClassifiers xsi:type="ecore:EClass" name="Grid">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
+        eType="#//Field" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plane" upperBound="-1"
+        eType="#//Plane" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bird" upperBound="-1" eType="#//Bird"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlyingObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plane" eSuperTypes="#//FlyingObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Bird" eSuperTypes="#//FlyingObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Field">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighbour" upperBound="-1"
+        eType="#//Field"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plane" eType="#//Plane"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bird" eType="#//Bird"/>
+  </eClassifiers>
+</ecore:EPackage>

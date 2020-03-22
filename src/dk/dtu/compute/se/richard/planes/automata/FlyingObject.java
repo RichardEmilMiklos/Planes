@@ -15,10 +15,10 @@ import dk.dtu.imm.se.ecno.core.IPackageAdapter;
 import dk.dtu.imm.se.ecno.engine.ExecutionEngine; 
 
 @SuppressWarnings("unused")
-public class Bird extends AbstractPetrinetBehaviour<planes.Bird> {
+public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject> {
 	
-	public Bird(ExecutionEngine engine, IElementType type,  EObject element) {
-		super(engine, (planes.Bird) element, new int[]{1, 0}, new String[]{"t1"}, type );
+	public FlyingObject(ExecutionEngine engine, IElementType type,  EObject element) {
+		super(engine, (planes.FlyingObject) element, new int[]{1, 0}, new String[]{"t1"}, type );
 	}
 	
 	@Override
@@ -86,7 +86,7 @@ public class Bird extends AbstractPetrinetBehaviour<planes.Bird> {
 		// of the ECNO code generator for ECNO nets. Therefore, the method
 		// self() should be used instead of the variable self in your 
 		// ECNO Net Java code snippets.
-		planes.Bird self = self();
+		planes.FlyingObject self = self();
 				
 		switch (transition) {
 		case 0: {
@@ -109,7 +109,7 @@ public class Bird extends AbstractPetrinetBehaviour<planes.Bird> {
 		// of the ECNO code generator for ECNO nets. Therefore, the method
 		// self() should be used instead of the variable self in your 
 		// ECNO Net Java code snippets.
-		planes.Bird self = self();
+		planes.FlyingObject self = self();
 		
 		switch (transition) {
 		case 0: {
@@ -127,7 +127,7 @@ public class Bird extends AbstractPetrinetBehaviour<planes.Bird> {
 		// of the ECNO code generator for ECNO nets. Therefore, the method
 		// self() should be used instead of the variable self in your 
 		// ECNO Net Java code snippets.
-		planes.Bird self = self();
+		planes.FlyingObject self = self();
 		
 		switch (transition) {
 		case 0: {
