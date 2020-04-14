@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecnogen:ECNOGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecnogen="http://ecno.se.imm.dtu.dk/ecno/gen" basePathECNOEvents="dk.dtu.compute.se.richard.planes.events" basePathECNOAutomata="dk.dtu.compute.se.richard.planes.automata" AutomataFactoryClassName="PlanesAutomata" basePathModelClass="dk.dtu.compute.se.richard.planes.coordination" ModelClassName="PlanesModel">
+<ecnogen:ECNOGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecnogen="http://ecno.se.imm.dtu.dk/ecno/gen" basePathECNOEvents="dk.dtu.compute.se.richard.planes.events" basePathECNOAutomata="dk.dtu.compute.se.richard.planes.automata" AutomataFactoryClassName="PlanesAutomata" basePathModelClass="dk.dtu.compute.se.richard.planes.coordination" ModelClassName="PlanesModel" PackageAdapterFactoryClassName="PlanesFactory">
   <emfGenModel href="planes.genmodel#/"/>
   <ecnoModel href="planes.ecno#/"/>
   <BehaviourModel href="planes.pnml#/"/>

@@ -13,5 +13,20 @@
             class="planes.PlanesPackage"
             genModel="model/planes.genmodel"/>
    </extension>
+   <extension
+         point="dk.dtu.imm.se.ecno.eclipse.package_adapter_factory">
+      <adapter_factory
+            class="dk.dtu.compute.se.richard.planes.coordination.PlanesFactory"
+            uri="planes.ECNO">
+      </adapter_factory>
+   </extension>
 
+	<extension
+		point="dk.dtu.imm.se.ecno.eclipse.engine_controller_configurator">
+		<configurator
+			class="dk.dtu.compute.se.richard.planes.controller.PlanesConfigurator"
+			uri="dk.dtu.compute.se.richard.planes.controller.PlanesConfigurator">
+		</configurator>
+	</extension>
+	
 </plugin>

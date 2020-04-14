@@ -18,7 +18,7 @@ import dk.dtu.imm.se.ecno.engine.ExecutionEngine;
 public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject> {
 	
 	public FlyingObject(ExecutionEngine engine, IElementType type,  EObject element) {
-		super(engine, (planes.FlyingObject) element, new int[]{1, 0}, new String[]{"t1"}, type );
+		super(engine, (planes.FlyingObject) element, new int[]{1, 0}, new String[]{"t1", "t2"}, type );
 	}
 	
 	@Override
@@ -26,6 +26,9 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		switch (t) {
 		case 0:
 			return marking.get(0) >= 1;
+                    
+		case 1:
+			return true;
                     
 		default:
 			return false;	
@@ -39,6 +42,9 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
             m[0]--;
             break;
                     
+		case 1:
+            break;
+                    
 		}
 	}
 
@@ -46,6 +52,8 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 	public boolean dropParentChoice(int t) {
 		switch (t) {
 		case 0:
+			return false;                    
+		case 1:
 			return false;                    
 		default:
 			return false;	
@@ -60,6 +68,11 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		switch (t) {
 		case 0:		
 			marking.set(0, marking.get(0) - 1);
+			marking.set(0,  marking.get(0) + 1);
+			break;
+			
+		case 1:		
+			marking.set(0,  marking.get(0) + 1);
 			marking.set(1,  marking.get(1) + 1);
 			break;
 						
@@ -70,6 +83,12 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 	public String[] getTransitionEventParameterNames(int transition, int event) {
 		switch (transition) {
 		case 0:
+			switch (event) {
+			case 0:
+				return new String[] {};
+            default: return new String[] {};
+                }
+		case 1:
 			switch (event) {
 			case 0:
 				return new String[] {};
@@ -98,6 +117,15 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 			default: return null;
 			}
 		}
+		case 1: {
+			switch (event) {
+			case 0:
+				switch (param) {    
+                default: return null;
+                }
+			default: return null;
+			}
+		}
 		default: return null;
 		}  
 	}	
@@ -113,6 +141,9 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		
 		switch (transition) {
 		case 0: {
+			return !self.getField().getNeighbour().isEmpty(); 
+		}
+		case 1: {
 			return true; 
 		}
 		default: return false;
@@ -132,7 +163,15 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		switch (transition) {
 		case 0: {
 {
+self().setField(self().getField().getNeighbour().get(0));
+}
+            fire(transition);
+			return; 
+		}
+		case 1: {
+{
 engine.removeElement(self());
+self().setField(null);
 }
             fire(transition);
 			return; 
@@ -145,6 +184,8 @@ engine.removeElement(self());
 	public String[] getTransitionEvents(int transition) {
 			switch (transition) {
 		case 0: 
+			return new String[] { "move" };
+		case 1: 
 			return new String[] { "crash" };
 		default: return null;
 		}  

@@ -11,7 +11,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlyingObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"
+        eOpposite="#//Field/flyingObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plane" eSuperTypes="#//FlyingObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="Bird" eSuperTypes="#//FlyingObject"/>
@@ -19,7 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="neighbour" upperBound="-1"
         eType="#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plane" eType="#//Plane"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bird" eType="#//Bird"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flyingObject" upperBound="-1"
+        eType="#//FlyingObject" eOpposite="#//FlyingObject/field"/>
   </eClassifiers>
 </ecore:EPackage>

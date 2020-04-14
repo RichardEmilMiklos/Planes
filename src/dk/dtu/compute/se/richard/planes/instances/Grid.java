@@ -24,47 +24,48 @@ public class Grid {
         planes.Field o4 = factory1.createField();
         planes.Plane o5 = factory1.createPlane();
         planes.Plane o6 = factory1.createPlane();
-        planes.Bird o7 = factory1.createBird();
-        planes.Bird o8 = factory1.createBird();	
+        planes.Plane o7 = factory1.createPlane();
+        planes.Bird o8 = factory1.createBird();
+        planes.Bird o9 = factory1.createBird();
+        planes.Bird o10 = factory1.createBird();	
 
 		// Set the (simple) attributes
-        o1.setName("00");
-        o2.setName("11");
-        o3.setName("22");
-        o4.setName("33");
+        o1.setName("1");
+        o2.setName("2");
+        o3.setName("3");
+        o4.setName("4");
         o5.setId(1);
-        o6.setId(22);
-        o7.setId(0);
-        o8.setId(2);	
+        o6.setId(2);
+        o7.setId(3);
+        o8.setId(4);
+        o9.setId(6);
+        o10.setId(5);	
    
 		// Create the single references
-        o1.setBird(o7);
-        o2.setPlane(o5);
-        o3.setPlane(o6);
-        o3.setBird(o8);
-        o5.setField(o2);
-        o6.setField(o3);
-        o7.setField(o1);
-        o8.setField(o3);	
+        o5.setField(o1);
+        o6.setField(o2);
+        o8.setField(o2);
+        o9.setField(o2);
+        o10.setField(o3);	
 
 		// Create the multi references
+        o1.getNeighbour().add(o4);
         o1.getNeighbour().add(o2);
         o2.getNeighbour().add(o1);
         o2.getNeighbour().add(o3);
         o3.getNeighbour().add(o2);
         o3.getNeighbour().add(o4);
-        o4.getNeighbour().add(o3);	
+        o4.getNeighbour().add(o3);
+        o4.getNeighbour().add(o1);	
    		
 		// Register the GUI objects with the controllers (objects 
 		// not visible at a GUI will be added to the engine on the fly)
-        engine.addElement(o1);
-        engine.addElement(o2);
-        engine.addElement(o3);
-        engine.addElement(o4);
         engine.addElement(o5);
         engine.addElement(o6);
         engine.addElement(o7);
         engine.addElement(o8);
+        engine.addElement(o9);
+        engine.addElement(o10);
 	}
 
     public static void main(String[] args) {

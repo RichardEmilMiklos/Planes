@@ -224,26 +224,17 @@ public class PlanesPackageImpl extends EPackageImpl implements PlanesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getField_Bird() {
-		return (EReference)fieldEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getField_Plane() {
-		return (EReference)fieldEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getField_Neighbour() {
 		return (EReference)fieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getField_FlyingObject() {
+		return (EReference)fieldEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -290,8 +281,7 @@ public class PlanesPackageImpl extends EPackageImpl implements PlanesPackage {
 		fieldEClass = createEClass(FIELD);
 		createEAttribute(fieldEClass, FIELD__NAME);
 		createEReference(fieldEClass, FIELD__NEIGHBOUR);
-		createEReference(fieldEClass, FIELD__PLANE);
-		createEReference(fieldEClass, FIELD__BIRD);
+		createEReference(fieldEClass, FIELD__FLYING_OBJECT);
 	}
 
 	/**
@@ -333,7 +323,7 @@ public class PlanesPackageImpl extends EPackageImpl implements PlanesPackage {
 
 		initEClass(flyingObjectEClass, FlyingObject.class, "FlyingObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlyingObject_Id(), ecorePackage.getEInt(), "id", null, 0, 1, FlyingObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlyingObject_Field(), this.getField(), null, "field", null, 0, 1, FlyingObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlyingObject_Field(), this.getField(), this.getField_FlyingObject(), "field", null, 0, 1, FlyingObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(planeEClass, Plane.class, "Plane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -342,8 +332,7 @@ public class PlanesPackageImpl extends EPackageImpl implements PlanesPackage {
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getField_Neighbour(), this.getField(), null, "neighbour", null, 0, -1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getField_Plane(), this.getPlane(), null, "plane", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getField_Bird(), this.getBird(), null, "bird", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getField_FlyingObject(), this.getFlyingObject(), this.getFlyingObject_Field(), "flyingObject", null, 0, -1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

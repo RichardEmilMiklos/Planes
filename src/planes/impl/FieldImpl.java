@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -16,9 +17,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import planes.Bird;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import planes.Field;
-import planes.Plane;
+import planes.FlyingObject;
 import planes.PlanesPackage;
 
 /**
@@ -31,8 +33,7 @@ import planes.PlanesPackage;
  * <ul>
  *   <li>{@link planes.impl.FieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link planes.impl.FieldImpl#getNeighbour <em>Neighbour</em>}</li>
- *   <li>{@link planes.impl.FieldImpl#getPlane <em>Plane</em>}</li>
- *   <li>{@link planes.impl.FieldImpl#getBird <em>Bird</em>}</li>
+ *   <li>{@link planes.impl.FieldImpl#getFlyingObject <em>Flying Object</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,24 +70,14 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	protected EList<Field> neighbour;
 
 	/**
-	 * The cached value of the '{@link #getPlane() <em>Plane</em>}' reference.
+	 * The cached value of the '{@link #getFlyingObject() <em>Flying Object</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlane()
+	 * @see #getFlyingObject()
 	 * @generated
 	 * @ordered
 	 */
-	protected Plane plane;
-
-	/**
-	 * The cached value of the '{@link #getBird() <em>Bird</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBird()
-	 * @generated
-	 * @ordered
-	 */
-	protected Bird bird;
+	protected EList<FlyingObject> flyingObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,87 +124,52 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Bird getBird() {
-		if (bird != null && bird.eIsProxy()) {
-			InternalEObject oldBird = (InternalEObject)bird;
-			bird = (Bird)eResolveProxy(oldBird);
-			if (bird != oldBird) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PlanesPackage.FIELD__BIRD, oldBird, bird));
-			}
-		}
-		return bird;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Bird basicGetBird() {
-		return bird;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBird(Bird newBird) {
-		Bird oldBird = bird;
-		bird = newBird;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PlanesPackage.FIELD__BIRD, oldBird, bird));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Plane getPlane() {
-		if (plane != null && plane.eIsProxy()) {
-			InternalEObject oldPlane = (InternalEObject)plane;
-			plane = (Plane)eResolveProxy(oldPlane);
-			if (plane != oldPlane) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PlanesPackage.FIELD__PLANE, oldPlane, plane));
-			}
-		}
-		return plane;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Plane basicGetPlane() {
-		return plane;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPlane(Plane newPlane) {
-		Plane oldPlane = plane;
-		plane = newPlane;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PlanesPackage.FIELD__PLANE, oldPlane, plane));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Field> getNeighbour() {
 		if (neighbour == null) {
 			neighbour = new EObjectResolvingEList<Field>(Field.class, this, PlanesPackage.FIELD__NEIGHBOUR);
 		}
 		return neighbour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FlyingObject> getFlyingObject() {
+		if (flyingObject == null) {
+			flyingObject = new EObjectWithInverseResolvingEList<FlyingObject>(FlyingObject.class, this, PlanesPackage.FIELD__FLYING_OBJECT, PlanesPackage.FLYING_OBJECT__FIELD);
+		}
+		return flyingObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFlyingObject()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				return ((InternalEList<?>)getFlyingObject()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -228,12 +184,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return getName();
 			case PlanesPackage.FIELD__NEIGHBOUR:
 				return getNeighbour();
-			case PlanesPackage.FIELD__PLANE:
-				if (resolve) return getPlane();
-				return basicGetPlane();
-			case PlanesPackage.FIELD__BIRD:
-				if (resolve) return getBird();
-				return basicGetBird();
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				return getFlyingObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,11 +206,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				getNeighbour().clear();
 				getNeighbour().addAll((Collection<? extends Field>)newValue);
 				return;
-			case PlanesPackage.FIELD__PLANE:
-				setPlane((Plane)newValue);
-				return;
-			case PlanesPackage.FIELD__BIRD:
-				setBird((Bird)newValue);
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				getFlyingObject().clear();
+				getFlyingObject().addAll((Collection<? extends FlyingObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,11 +228,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 			case PlanesPackage.FIELD__NEIGHBOUR:
 				getNeighbour().clear();
 				return;
-			case PlanesPackage.FIELD__PLANE:
-				setPlane((Plane)null);
-				return;
-			case PlanesPackage.FIELD__BIRD:
-				setBird((Bird)null);
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				getFlyingObject().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,10 +247,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PlanesPackage.FIELD__NEIGHBOUR:
 				return neighbour != null && !neighbour.isEmpty();
-			case PlanesPackage.FIELD__PLANE:
-				return plane != null;
-			case PlanesPackage.FIELD__BIRD:
-				return bird != null;
+			case PlanesPackage.FIELD__FLYING_OBJECT:
+				return flyingObject != null && !flyingObject.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

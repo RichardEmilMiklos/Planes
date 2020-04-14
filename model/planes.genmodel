@@ -19,8 +19,7 @@
     <genClasses ecoreClass="planes.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute planes.ecore#//Field/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference planes.ecore#//Field/neighbour"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planes.ecore#//Field/plane"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planes.ecore#//Field/bird"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planes.ecore#//Field/flyingObject"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

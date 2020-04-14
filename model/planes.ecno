@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecno:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecno="http://ecno.se.imm.dtu.dk/ecno" uri="planesecno">
+<ecno:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecno="http://ecno.se.imm.dtu.dk/ecno" uri="planes.ECNO">
+  <elementTypes packageURI="">
+    <eClass href="planes.ecore#//Field"/>
+    <coordinationSets synchronisations="//@elementTypes.0/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <coordinationSets synchronisations="//@elementTypes.0/@references.1/@synchronisations.0 //@elementTypes.0/@references.0/@synchronisations.1" triggerEvent="//@eventTypes.1"/>
+    <references target="//@elementTypes.1">
+      <eReference href="planes.ecore#//Field/flyingObject"/>
+      <synchronisations eventType="//@eventTypes.0" type="ALL" coordinationSet="//@elementTypes.0/@coordinationSets.0"/>
+      <synchronisations eventType="//@eventTypes.1" coordinationSet="//@elementTypes.0/@coordinationSets.1"/>
+    </references>
+    <references target="//@elementTypes.0">
+      <eReference href="planes.ecore#//Field/neighbour"/>
+      <synchronisations eventType="//@eventTypes.1" coordinationSet="//@elementTypes.0/@coordinationSets.1"/>
+    </references>
+  </elementTypes>
   <elementTypes gui="true">
     <eClass href="planes.ecore#//FlyingObject"/>
-    <coordinationSets synchronisations="//@elementTypes.0/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
-    <references target="//@elementTypes.1">
+    <coordinationSets synchronisations="//@elementTypes.1/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <coordinationSets triggerEvent="//@eventTypes.1"/>
+    <references target="//@elementTypes.0">
       <eReference href="planes.ecore#//FlyingObject/field"/>
-      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.0/@coordinationSets.0"/>
-    </references>
-  </elementTypes>
-  <elementTypes gui="true">
-    <eClass href="planes.ecore#//Field"/>
-    <coordinationSets synchronisations="//@elementTypes.1/@references.0/@synchronisations.0 //@elementTypes.1/@references.1/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
-    <references target="//@elementTypes.2">
-      <eReference href="planes.ecore#//Field/bird"/>
-      <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.1/@coordinationSets.0"/>
-    </references>
-    <references target="//@elementTypes.3">
-      <eReference href="planes.ecore#//Field/plane"/>
       <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.1/@coordinationSets.0"/>
     </references>
   </elementTypes>
-  <elementTypes gui="true" super="//@elementTypes.0">
+  <elementTypes gui="true" super="//@elementTypes.1">
     <eClass href="planes.ecore#//Bird"/>
   </elementTypes>
-  <elementTypes gui="true" super="//@elementTypes.0">
+  <elementTypes gui="true" super="//@elementTypes.1">
     <eClass href="planes.ecore#//Plane"/>
   </elementTypes>
   <ePackage href="planes.ecore#/"/>
-  <eventTypes name="crash" gui="true"/>
+  <eventTypes typeName="" name="crash" gui="true"/>
+  <eventTypes packageURI="" name="move" gui="true"/>
 </ecno:Package>

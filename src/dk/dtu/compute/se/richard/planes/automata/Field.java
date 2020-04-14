@@ -18,13 +18,16 @@ import dk.dtu.imm.se.ecno.engine.ExecutionEngine;
 public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 	
 	public Field(ExecutionEngine engine, IElementType type,  EObject element) {
-		super(engine, (planes.Field) element, new int[]{1}, new String[]{"t1"}, type );
+		super(engine, (planes.Field) element, new int[]{1}, new String[]{"t1", "t2"}, type );
 	}
 	
 	@Override
 	public boolean enabled(int t) {
 		switch (t) {
 		case 0:
+			return marking.get(0) >= 1;
+                    
+		case 1:
 			return marking.get(0) >= 1;
                     
 		default:
@@ -39,6 +42,10 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
             m[0]--;
             break;
                     
+		case 1:
+            m[0]--;
+            break;
+                    
 		}
 	}
 
@@ -46,6 +53,8 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 	public boolean dropParentChoice(int t) {
 		switch (t) {
 		case 0:
+			return false;                    
+		case 1:
 			return false;                    
 		default:
 			return false;	
@@ -62,6 +71,11 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 			marking.set(0, marking.get(0) - 1);
 			marking.set(0,  marking.get(0) + 1);
 			break;
+			
+		case 1:		
+			marking.set(0, marking.get(0) - 1);
+			marking.set(0,  marking.get(0) + 1);
+			break;
 						
 		}
 	}
@@ -70,6 +84,12 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 	public String[] getTransitionEventParameterNames(int transition, int event) {
 		switch (transition) {
 		case 0:
+			switch (event) {
+			case 0:
+				return new String[] {};
+            default: return new String[] {};
+                }
+		case 1:
 			switch (event) {
 			case 0:
 				return new String[] {};
@@ -98,6 +118,15 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 			default: return null;
 			}
 		}
+		case 1: {
+			switch (event) {
+			case 0:
+				switch (param) {    
+                default: return null;
+                }
+			default: return null;
+			}
+		}
 		default: return null;
 		}  
 	}	
@@ -113,6 +142,9 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 		
 		switch (transition) {
 		case 0: {
+			return self().getFlyingObject().size() > 1; 
+		}
+		case 1: {
 			return true; 
 		}
 		default: return false;
@@ -135,6 +167,11 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
             fire(transition);
 			return; 
 		}
+		case 1: {
+/* DO NOTHING */
+            fire(transition);
+			return; 
+		}
 		default: return;
 		}  
 	}	
@@ -144,6 +181,8 @@ public class Field extends AbstractPetrinetBehaviour<planes.Field> {
 			switch (transition) {
 		case 0: 
 			return new String[] { "crash" };
+		case 1: 
+			return new String[] { "move" };
 		default: return null;
 		}  
 	}

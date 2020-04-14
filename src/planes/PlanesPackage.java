@@ -278,22 +278,13 @@ public interface PlanesPackage extends EPackage {
 	int FIELD__NEIGHBOUR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Plane</b></em>' reference.
+	 * The feature id for the '<em><b>Flying Object</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__PLANE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Bird</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD__BIRD = 3;
+	int FIELD__FLYING_OBJECT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
@@ -302,7 +293,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = 4;
+	int FIELD_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -431,28 +422,6 @@ public interface PlanesPackage extends EPackage {
 	EAttribute getField_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link planes.Field#getBird <em>Bird</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Bird</em>'.
-	 * @see planes.Field#getBird()
-	 * @see #getField()
-	 * @generated
-	 */
-	EReference getField_Bird();
-
-	/**
-	 * Returns the meta object for the reference '{@link planes.Field#getPlane <em>Plane</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Plane</em>'.
-	 * @see planes.Field#getPlane()
-	 * @see #getField()
-	 * @generated
-	 */
-	EReference getField_Plane();
-
-	/**
 	 * Returns the meta object for the reference list '{@link planes.Field#getNeighbour <em>Neighbour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +431,17 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getField_Neighbour();
+
+	/**
+	 * Returns the meta object for the reference list '{@link planes.Field#getFlyingObject <em>Flying Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Flying Object</em>'.
+	 * @see planes.Field#getFlyingObject()
+	 * @see #getField()
+	 * @generated
+	 */
+	EReference getField_FlyingObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -585,28 +565,20 @@ public interface PlanesPackage extends EPackage {
 		EAttribute FIELD__NAME = eINSTANCE.getField_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Bird</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FIELD__BIRD = eINSTANCE.getField_Bird();
-
-		/**
-		 * The meta object literal for the '<em><b>Plane</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FIELD__PLANE = eINSTANCE.getField_Plane();
-
-		/**
 		 * The meta object literal for the '<em><b>Neighbour</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference FIELD__NEIGHBOUR = eINSTANCE.getField_Neighbour();
+
+		/**
+		 * The meta object literal for the '<em><b>Flying Object</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FIELD__FLYING_OBJECT = eINSTANCE.getField_FlyingObject();
 
 	}
 

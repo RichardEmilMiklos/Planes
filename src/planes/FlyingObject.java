@@ -46,12 +46,14 @@ public interface FlyingObject extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Field</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link planes.Field#getFlyingObject <em>Flying Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Field</em>' reference.
 	 * @see #setField(Field)
 	 * @see planes.PlanesPackage#getFlyingObject_Field()
-	 * @model
+	 * @see planes.Field#getFlyingObject
+	 * @model opposite="flyingObject"
 	 * @generated
 	 */
 	Field getField();
