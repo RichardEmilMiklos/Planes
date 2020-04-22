@@ -2,6 +2,7 @@
  */
 package planes;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link planes.FlyingObject#getId <em>Id</em>}</li>
+ *   <li>{@link planes.FlyingObject#getProximity <em>Proximity</em>}</li>
  *   <li>{@link planes.FlyingObject#getField <em>Field</em>}</li>
  * </ul>
  *
@@ -43,6 +45,18 @@ public interface FlyingObject extends EObject {
 	 * @generated
 	 */
 	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Proximity</b></em>' reference list.
+	 * The list contents are of type {@link planes.FlyingObject}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Proximity</em>' reference list.
+	 * @see planes.PlanesPackage#getFlyingObject_Proximity()
+	 * @model
+	 * @generated
+	 */
+	EList<FlyingObject> getProximity();
 
 	/**
 	 * Returns the value of the '<em><b>Field</b></em>' reference.

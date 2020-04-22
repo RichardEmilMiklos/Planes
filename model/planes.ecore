@@ -11,6 +11,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlyingObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proximity" upperBound="-1"
+        eType="#//FlyingObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"
         eOpposite="#//Field/flyingObject"/>
   </eClassifiers>

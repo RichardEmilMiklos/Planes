@@ -41,6 +41,7 @@ public class PlanesModel extends EMFPackageAdapter {
 	private Reference referencetype_Field_flyingObject;
 	private Reference referencetype_Field_neighbour;
 	private Reference referencetype_FlyingObject_field;
+	private Reference referencetype_FlyingObject_proximity;
 
 
 	private PlanesModel(ExecutionEngine engine) {
@@ -110,6 +111,11 @@ public class PlanesModel extends EMFPackageAdapter {
 		referencetype_FlyingObject_field.setTarget(elementtype_Field);
 		references.add(referencetype_FlyingObject_field);
 
+		referencetype_FlyingObject_proximity = ecno_factory.createReference();
+		referencetype_FlyingObject_proximity.setEReference(pack.getFlyingObject_Proximity());
+		referencetype_FlyingObject_proximity.setTarget(elementtype_FlyingObject);
+		references.add(referencetype_FlyingObject_proximity);
+
 
 		Synchronisation synch;
 		CoordinationSet cset;
@@ -143,6 +149,11 @@ public class PlanesModel extends EMFPackageAdapter {
 		synch.setReference(referencetype_FlyingObject_field);
 		synch.setEventType(eventtype_crash);
 		synch.setType(SynchronisationType.ONE);
+		cset.getSynchronisations().add(synch);
+		synch = ecno_factory.createSynchronisation();
+		synch.setReference(referencetype_FlyingObject_proximity);
+		synch.setEventType(eventtype_crash);
+		synch.setType(SynchronisationType.ALL);
 		cset.getSynchronisations().add(synch);
 		elementtype_FlyingObject.getCoordinationSets().add(cset);
 

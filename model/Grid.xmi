@@ -18,11 +18,14 @@
   <plane id="1"
       field="//@field.0"/>
   <plane id="2"
+      proximity="//@bird.0 //@bird.1"
       field="//@field.1"/>
   <plane id="3"/>
   <bird id="4"
+      proximity="//@plane.1 //@bird.1"
       field="//@field.1"/>
   <bird id="6"
+      proximity="//@plane.1 //@bird.0"
       field="//@field.1"/>
   <bird id="5"
       field="//@field.2"/>

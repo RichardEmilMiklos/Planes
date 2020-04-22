@@ -16,11 +16,15 @@
   </elementTypes>
   <elementTypes gui="true">
     <eClass href="planes.ecore#//FlyingObject"/>
-    <coordinationSets synchronisations="//@elementTypes.1/@references.0/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
+    <coordinationSets synchronisations="//@elementTypes.1/@references.0/@synchronisations.0 //@elementTypes.1/@references.1/@synchronisations.0" triggerEvent="//@eventTypes.0"/>
     <coordinationSets triggerEvent="//@eventTypes.1"/>
     <references target="//@elementTypes.0">
       <eReference href="planes.ecore#//FlyingObject/field"/>
       <synchronisations eventType="//@eventTypes.0" coordinationSet="//@elementTypes.1/@coordinationSets.0"/>
+    </references>
+    <references target="//@elementTypes.1">
+      <eReference href="planes.ecore#//FlyingObject/proximity"/>
+      <synchronisations eventType="//@eventTypes.0" type="ALL" coordinationSet="//@elementTypes.1/@coordinationSets.0"/>
     </references>
   </elementTypes>
   <elementTypes gui="true" super="//@elementTypes.1">

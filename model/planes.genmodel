@@ -12,6 +12,7 @@
     </genClasses>
     <genClasses ecoreClass="planes.ecore#//FlyingObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute planes.ecore#//FlyingObject/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planes.ecore#//FlyingObject/proximity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference planes.ecore#//FlyingObject/field"/>
     </genClasses>
     <genClasses ecoreClass="planes.ecore#//Plane"/>

@@ -56,7 +56,13 @@ public class Grid {
         o3.getNeighbour().add(o2);
         o3.getNeighbour().add(o4);
         o4.getNeighbour().add(o3);
-        o4.getNeighbour().add(o1);	
+        o4.getNeighbour().add(o1);
+        o6.getProximity().add(o8);
+        o6.getProximity().add(o9);
+        o8.getProximity().add(o6);
+        o8.getProximity().add(o9);
+        o9.getProximity().add(o6);
+        o9.getProximity().add(o8);	
    		
 		// Register the GUI objects with the controllers (objects 
 		// not visible at a GUI will be added to the engine on the fly)

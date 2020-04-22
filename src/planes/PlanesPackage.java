@@ -131,13 +131,22 @@ public interface PlanesPackage extends EPackage {
 	int FLYING_OBJECT__ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Proximity</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLYING_OBJECT__PROXIMITY = 1;
+
+	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLYING_OBJECT__FIELD = 1;
+	int FLYING_OBJECT__FIELD = 2;
 
 	/**
 	 * The number of structural features of the '<em>Flying Object</em>' class.
@@ -146,7 +155,7 @@ public interface PlanesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLYING_OBJECT_FEATURE_COUNT = 2;
+	int FLYING_OBJECT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Flying Object</em>' class.
@@ -175,6 +184,15 @@ public interface PlanesPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANE__ID = FLYING_OBJECT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Proximity</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANE__PROXIMITY = FLYING_OBJECT__PROXIMITY;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
@@ -221,6 +239,15 @@ public interface PlanesPackage extends EPackage {
 	 * @ordered
 	 */
 	int BIRD__ID = FLYING_OBJECT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Proximity</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIRD__PROXIMITY = FLYING_OBJECT__PROXIMITY;
 
 	/**
 	 * The feature id for the '<em><b>Field</b></em>' reference.
@@ -370,6 +397,17 @@ public interface PlanesPackage extends EPackage {
 	EAttribute getFlyingObject_Id();
 
 	/**
+	 * Returns the meta object for the reference list '{@link planes.FlyingObject#getProximity <em>Proximity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Proximity</em>'.
+	 * @see planes.FlyingObject#getProximity()
+	 * @see #getFlyingObject()
+	 * @generated
+	 */
+	EReference getFlyingObject_Proximity();
+
+	/**
 	 * Returns the meta object for the reference '{@link planes.FlyingObject#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,6 +555,14 @@ public interface PlanesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FLYING_OBJECT__ID = eINSTANCE.getFlyingObject_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Proximity</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLYING_OBJECT__PROXIMITY = eINSTANCE.getFlyingObject_Proximity();
 
 		/**
 		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.

@@ -164,6 +164,7 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		case 0: {
 {
 self().setField(self().getField().getNeighbour().get(0));
+
 }
             fire(transition);
 			return; 

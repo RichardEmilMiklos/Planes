@@ -2,13 +2,16 @@
  */
 package planes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import planes.Field;
 import planes.FlyingObject;
 import planes.PlanesPackage;
@@ -22,6 +25,7 @@ import planes.PlanesPackage;
  * </p>
  * <ul>
  *   <li>{@link planes.impl.FlyingObjectImpl#getId <em>Id</em>}</li>
+ *   <li>{@link planes.impl.FlyingObjectImpl#getProximity <em>Proximity</em>}</li>
  *   <li>{@link planes.impl.FlyingObjectImpl#getField <em>Field</em>}</li>
  * </ul>
  *
@@ -47,6 +51,16 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 	 * @ordered
 	 */
 	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProximity() <em>Proximity</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProximity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FlyingObject> proximity;
 
 	/**
 	 * The cached value of the '{@link #getField() <em>Field</em>}' reference.
@@ -96,6 +110,18 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PlanesPackage.FLYING_OBJECT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FlyingObject> getProximity() {
+		if (proximity == null) {
+			proximity = new EObjectResolvingEList<FlyingObject>(FlyingObject.class, this, PlanesPackage.FLYING_OBJECT__PROXIMITY);
+		}
+		return proximity;
 	}
 
 	/**
@@ -198,6 +224,8 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 		switch (featureID) {
 			case PlanesPackage.FLYING_OBJECT__ID:
 				return getId();
+			case PlanesPackage.FLYING_OBJECT__PROXIMITY:
+				return getProximity();
 			case PlanesPackage.FLYING_OBJECT__FIELD:
 				if (resolve) return getField();
 				return basicGetField();
@@ -217,6 +245,10 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 			case PlanesPackage.FLYING_OBJECT__ID:
 				setId((Integer)newValue);
 				return;
+			case PlanesPackage.FLYING_OBJECT__PROXIMITY:
+				getProximity().clear();
+				getProximity().addAll((Collection<? extends FlyingObject>)newValue);
+				return;
 			case PlanesPackage.FLYING_OBJECT__FIELD:
 				setField((Field)newValue);
 				return;
@@ -235,6 +267,9 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 			case PlanesPackage.FLYING_OBJECT__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case PlanesPackage.FLYING_OBJECT__PROXIMITY:
+				getProximity().clear();
+				return;
 			case PlanesPackage.FLYING_OBJECT__FIELD:
 				setField((Field)null);
 				return;
@@ -252,6 +287,8 @@ public class FlyingObjectImpl extends MinimalEObjectImpl.Container implements Fl
 		switch (featureID) {
 			case PlanesPackage.FLYING_OBJECT__ID:
 				return id != ID_EDEFAULT;
+			case PlanesPackage.FLYING_OBJECT__PROXIMITY:
+				return proximity != null && !proximity.isEmpty();
 			case PlanesPackage.FLYING_OBJECT__FIELD:
 				return field != null;
 		}
