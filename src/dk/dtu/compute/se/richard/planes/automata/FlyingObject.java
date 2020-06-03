@@ -28,7 +28,7 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 			return marking.get(0) >= 1;
                     
 		case 1:
-			return true;
+			return marking.get(0) >= 1;
                     
 		default:
 			return false;	
@@ -43,6 +43,7 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
             break;
                     
 		case 1:
+            m[0]--;
             break;
                     
 		}
@@ -72,7 +73,7 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 			break;
 			
 		case 1:		
-			marking.set(0,  marking.get(0) + 1);
+			marking.set(0, marking.get(0) - 1);
 			marking.set(1,  marking.get(1) + 1);
 			break;
 						

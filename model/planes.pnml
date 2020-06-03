@@ -285,7 +285,7 @@
             <styles xsi:type="notation:DescriptionStyle" description=""/>
             <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
             <styles xsi:type="notation:FillStyle" fillColor="16777215" transparency="-1"/>
-            <layoutConstraint xsi:type="notation:Bounds" x="260" y="320" width="216" height="31"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="260" y="320" width="236" height="31"/>
           </children>
           <children visible="true" type="2009" element="//@net.1/@page.0/@labelproxy.7">
             <children xsi:type="notation:DecorationNode" visible="true" type="5004"/>
@@ -322,11 +322,6 @@
             <element xsi:nil="true"/>
             <bendpoints xsi:type="notation:RelativeBendpoints" points="[-5, -13, 12, 47]$[31, -57, 48, 3]"/>
           </edges>
-          <edges xsi:type="notation:Connector" visible="true" type="4001" element="a7" source="//@net.1/@page.0/@toolspecific.0/@diagram/@children.5" target="//@net.1/@page.0/@toolspecific.0/@diagram/@children.0" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="0" lineWidth="-1">
-            <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
-            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-55, 4, 123, -10]$[-157, 20, 21, 6]"/>
-            <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.7735849056603774,0.59375)"/>
-          </edges>
           <edges xsi:type="notation:Connector" visible="true" type="4001" element="a8" source="//@net.1/@page.0/@toolspecific.0/@diagram/@children.5" target="//@net.1/@page.0/@toolspecific.0/@diagram/@children.6" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="0" lineWidth="-1">
             <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
             <bendpoints xsi:type="notation:RelativeBendpoints" points="[56, -5, -209, -5]$[274, -48, 9, -48]"/>
@@ -356,6 +351,11 @@
             <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
             <element xsi:nil="true"/>
             <bendpoints xsi:type="notation:RelativeBendpoints" points="[-165, -71, 57, 9]$[-174, -120, 48, -40]"/>
+          </edges>
+          <edges xsi:type="notation:Connector" visible="true" type="4001" element="a7" source="//@net.1/@page.0/@toolspecific.0/@diagram/@children.0" target="//@net.1/@page.0/@toolspecific.0/@diagram/@children.5" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="0" lineWidth="-1">
+            <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[12, -2, -93, -1]$[97, -44, -8, -43]"/>
+            <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8773584905660378,0.4583333333333333)"/>
           </edges>
         </diagram>
         <labelProxy label="//@net.1/@page.0/@object.0/@initialMarking"/>
@@ -407,8 +407,8 @@
           <graphics>
             <offset x="52.0" y="-33.0"/>
           </graphics>
-          <structure code="!self.getField().getNeighbour().isEmpty()"/>
-          <text>!self.getField().getNeighbour().isEmpty()</text>
+          <structure code="!self().getField().getNeighbour().isEmpty()"/>
+          <text>!self().getField().getNeighbour().isEmpty()</text>
         </condition>
         <action>
           <graphics>
@@ -464,13 +464,6 @@
 self().setField(null);</text>
         </action>
       </transition>
-      <arc id="a7" source="t3" target="p2">
-        <graphics>
-          <line shape="line" color="#000000" width="1.0"/>
-          <position x="293.0" y="202.0"/>
-          <position x="191.0" y="218.0"/>
-        </graphics>
-      </arc>
       <place id="p3">
         <graphics>
           <position x="520.5" y="198.0"/>
@@ -484,6 +477,13 @@ self().setField(null);</text>
           <line shape="line" color="#000000" width="1.0"/>
           <position x="404.0" y="193.0"/>
           <position x="622.0" y="150.0"/>
+        </graphics>
+      </arc>
+      <arc id="a7" source="p2" target="t3">
+        <graphics>
+          <line shape="line" color="#000000" width="1.0"/>
+          <position x="215.0" y="201.0"/>
+          <position x="300.0" y="159.0"/>
         </graphics>
       </arc>
     </page>

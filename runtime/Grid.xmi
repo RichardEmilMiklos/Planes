@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plns:Grid xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:plns="http://planes/planes"
+    xsi:schemaLocation="http://planes/planes planes.ecore">
+  <field name="1"
+      neighbour="//@field.3 //@field.1"
+      flyingObject="//@plane.0"/>
+  <field name="2"
+      neighbour="//@field.0 //@field.2"
+      flyingObject="//@plane.1 //@bird.0 //@bird.1"/>
+  <field name="3"
+      neighbour="//@field.1 //@field.3"
+      flyingObject="//@bird.2"/>
+  <field name="4"
+      neighbour="//@field.2 //@field.0"/>
+  <plane id="1"
+      field="//@field.0"/>
+  <plane id="2"
+      proximity="//@bird.0 //@bird.1"
+      field="//@field.1"/>
+  <plane id="3"/>
+  <bird id="4"
+      proximity="//@plane.1 //@bird.1"
+      field="//@field.1"/>
+  <bird id="6"
+      proximity="//@plane.1 //@bird.0"
+      field="//@field.1"/>
+  <bird id="5"
+      field="//@field.2"/>
+</plns:Grid>
