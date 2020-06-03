@@ -20,6 +20,7 @@ public class PlanesConfigurator implements IControllerConfigurator {
 		
 		engine.addController(new PlanesGUI(engine,null));
 		
+		
 		new ECNOGUI(engine);
 		
 	}

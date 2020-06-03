@@ -47,12 +47,14 @@ public class PlanesGUI extends JFrame implements IController {
 		@Override
 		public void notifyChanged(Notification notification) {
 
+			if (engine.isExclusivelyLocked()) {
+				return;
+			}
+
 			if (notification.getFeature().equals(PlanesPackage.eINSTANCE.getFlyingObject_Proximity())) {
 				// Do nothing if notification occurred due to proximity change.
 				return;
 			}
-
-			//System.out.println(notification);
 
 			Notifier notifier = (Notifier) notification.getNotifier();
 
@@ -82,16 +84,16 @@ public class PlanesGUI extends JFrame implements IController {
 					newFO.getProximity().remove(newFO);
 
 				}
-				
+
 			}
-			
+
 			if (notifier instanceof FlyingObject) {
-				/*for (FlyingObject curFO : ((FlyingObject)notifier).getProximity()) {
-					System.out.println(curFO.getProximity());
-				}
-				*/
+				/*
+				 * for (FlyingObject curFO : ((FlyingObject)notifier).getProximity()) {
+				 * System.out.println(curFO.getProximity()); }
+				 */
 			}
-			
+
 		}
 
 		@Override
@@ -105,11 +107,14 @@ public class PlanesGUI extends JFrame implements IController {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
 	};
 
 	public PlanesGUI(final ExecutionEngine engine, final PlanesModel model) {
 		super();
 
+		this.engine = engine;
+		
 		engine.addController(this);
 	}
 
