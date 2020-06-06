@@ -39,12 +39,6 @@ public class PlanesGUI extends JFrame implements IController {
 	Adapter observer = new Adapter() {
 
 		@Override
-		public void setTarget(Notifier newTarget) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
 		public void notifyChanged(Notification notification) {
 
 			if (engine.isExclusivelyLocked()) {
@@ -88,14 +82,24 @@ public class PlanesGUI extends JFrame implements IController {
 			}
 
 			if (notifier instanceof FlyingObject) {
-				/*
-				 * for (FlyingObject curFO : ((FlyingObject)notifier).getProximity()) {
-				 * System.out.println(curFO.getProximity()); }
-				 */
+				if (notification.getNewValue() == null) {
+					System.out.println("FlyingObject " + ((FlyingObject) notifier).getId() + " crashed");
+				} else {
+					System.out.println("FlyingObject " + ((FlyingObject) notifier).getId() + " moved from Field "
+							+ ((Field) notification.getOldValue()).getName() + " to Field "
+							+ ((FlyingObject) notifier).getField().getName());
+				}
+
 			}
 
 		}
 
+		@Override
+		public void setTarget(Notifier newTarget) {
+			// TODO Auto-generated method stub
+
+		}
+		
 		@Override
 		public boolean isAdapterForType(Object type) {
 			// TODO Auto-generated method stub
@@ -114,7 +118,7 @@ public class PlanesGUI extends JFrame implements IController {
 		super();
 
 		this.engine = engine;
-		
+
 		engine.addController(this);
 	}
 

@@ -13,6 +13,7 @@ import dk.dtu.imm.se.ecno.runtime.ParentAction;
 import dk.dtu.imm.se.ecno.core.IElementType;
 import dk.dtu.imm.se.ecno.core.IPackageAdapter;
 import dk.dtu.imm.se.ecno.engine.ExecutionEngine; 
+import java.util.Random;
 
 @SuppressWarnings("unused")
 public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject> {
@@ -142,7 +143,7 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		
 		switch (transition) {
 		case 0: {
-			return !self.getField().getNeighbour().isEmpty(); 
+			return !self().getField().getNeighbour().isEmpty(); 
 		}
 		case 1: {
 			return true; 
@@ -164,7 +165,18 @@ public class FlyingObject extends AbstractPetrinetBehaviour<planes.FlyingObject>
 		switch (transition) {
 		case 0: {
 {
-self().setField(self().getField().getNeighbour().get(0));
+
+Random random = new Random();
+self().setField(self().getField().getNeighbour().get(random.nextInt(self().getField().getNeighbour().size())));
+
+
+
+
+
+
+
+
+
 
 }
             fire(transition);

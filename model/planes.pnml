@@ -292,7 +292,7 @@
             <styles xsi:type="notation:DescriptionStyle" description=""/>
             <styles xsi:type="notation:FontStyle" fontColor="0" fontName="Segoe UI" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false"/>
             <styles xsi:type="notation:FillStyle" fillColor="16777215" transparency="-1"/>
-            <layoutConstraint xsi:type="notation:Bounds" x="285" y="350" width="281" height="36"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="270" y="340" width="666" height="181"/>
           </children>
           <styles xsi:type="notation:DiagramStyle" pageX="0" pageY="0" pageWidth="100" pageHeight="100" description=""/>
           <edges xsi:type="notation:Connector" visible="true" type="4001" element="a5" source="//@net.1/@page.0/@toolspecific.0/@diagram/@children.0" target="//@net.1/@page.0/@toolspecific.0/@diagram/@children.1" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="0" lineWidth="-1">
@@ -412,10 +412,20 @@
         </condition>
         <action>
           <graphics>
-            <offset x="77.0" y="-3.0"/>
+            <offset x="62.0" y="-13.0"/>
           </graphics>
-          <structure code="{&#xD;&#xA;self().setField(self().getField().getNeighbour().get(0));&#xD;&#xA;&#xD;&#xA;}"/>
-          <text>self().setField(self().getField().getNeighbour().get(0));&#xD;
+          <structure code="{&#xD;&#xA;&#xD;&#xA;self().setField(self().getField().getNeighbour().get(random.nextInt(self().getField().getNeighbour().size())));&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;}"/>
+          <text>&#xD;
+self().setField(self().getField().getNeighbour().get(random.nextInt(self().getField().getNeighbour().size())));&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
 </text>
         </action>
       </transition>

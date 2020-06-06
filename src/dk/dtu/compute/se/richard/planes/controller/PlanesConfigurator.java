@@ -15,14 +15,10 @@ import dk.dtu.imm.se.ecno.gui.ECNOGUI;
 public class PlanesConfigurator implements IControllerConfigurator {
 
 	@Override
-	public void initializeControllers(ExecutionEngine engine,
-			ControllerState state) {
-		
-		engine.addController(new PlanesGUI(engine,null));
-		
-		
-		new ECNOGUI(engine);
-		
-	}
+	public void initializeControllers(ExecutionEngine engine, ControllerState state) {
 
+		engine.addController(new PlanesGUI(engine, null));
+
+		new ECNOGUI(engine);
+	}
 }
